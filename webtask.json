@@ -20,11 +20,11 @@
   },
   "secrets": {
     "STACKIFY_APIKEY": {
-      "description": "Stackify API Key",
+      "description": "Stackify API Key e.g. 2Wf4Ak3Kp2Tl8Ss7Ad1Ra7Hh8Px3Bl5Wq8Pt8Oq",
       "required": true
     },
     "STACKIFY_ENV": {
-      "description": "Stackify Environment",
+      "description": "Stackify Environment e.g. Development",
       "required": true,
       "type": "password"
     },
