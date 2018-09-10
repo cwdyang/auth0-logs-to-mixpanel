@@ -33,8 +33,9 @@ module.exports = storage =>
       }
 
       logs.forEach(function(element) {
+        Logger.error("TEST AUTH0 ERROR");
         console.log(element.event + ' ' + element.properties.distinct_id);
-        Logger.log(element.event, element.properties.distinct_id)
+        Logger.log(element.event, element.properties.distinct_id);
       });
       
 
