@@ -19,12 +19,12 @@
     "scopes": "read:logs delete:clients"
   },
   "secrets": {
-    "MIXPANEL_TOKEN": {
-      "description": "Mixpanel Token - this is your Mixpanel Token for your mixpanel project",
+    "STACKIFY_APIKEY": {
+      "description": "Stackify API Key",
       "required": true
     },
-    "MIXPANEL_KEY": {
-      "description": "Mixpanel Key - this is your Mixpanel Key for your mixpanel project",
+    "STACKIFY_ENV": {
+      "description": "Stackify Environment",
       "required": true,
       "type": "password"
     },

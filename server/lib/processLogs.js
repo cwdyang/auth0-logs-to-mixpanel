@@ -1,5 +1,6 @@
 const moment = require('moment');
-const Mixpanel = require('mixpanel');
+//const Mixpanel = require('mixpanel');
+const stackifyLogger = require('stackify-logger');
 
 const loggingTools = require('auth0-log-extension-tools');
 const config = require('../lib/config');
@@ -18,15 +19,26 @@ module.exports = storage =>
     const normalizeErrors = errors =>
       errors.map(err => ({ name: err.name, message: err.message, stack: err.stack }));
 
-    const Logger = Mixpanel.init(config('MIXPANEL_TOKEN'), {
-      key: config('MIXPANEL_KEY')
+
+      const Logger = stackifyLogger.start({apiKey: config('STACKIFY_APIKEY'), env: config('STACKIFY_ENV')});
+    /* 
+    const Logger =  Mixpanel.init(config('STACKIFY_APIKEY'), {
+      key: config('STACKIFY_ENV')
     });
+    */
 
     const sendLogs = (logs, cb) => {
       if (!logs || !logs.length) {
         cb();
       }
 
+      logs.forEach(function(element) {
+        console.log(element.event + ' ' + element.properties.distinct_id);
+        Logger.log(element.event, element.properties.distinct_id)
+      });
+      
+
+      /*
       Logger.import_batch(logs, function(errorList) {
         if (errorList && errorList.length > 0) {
           if (logs.length > 10) {
@@ -51,6 +63,7 @@ module.exports = storage =>
         logger.info(`${logs.length} events successfully sent to mixpanel.`);
         return cb();
       });
+      */
     };
 
     const onLogsReceived = (logs, cb) => {
