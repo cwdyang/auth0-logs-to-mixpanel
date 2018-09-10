@@ -38,7 +38,8 @@ module.exports = storage =>
         Logger.log('info', element.event + ' ' + element.properties.distinct_id);
       });
       
-
+      logger.info(`${logs.length} events successfully sent to mixpanel.`);
+      return cb();
       /*
       Logger.import_batch(logs, function(errorList) {
         if (errorList && errorList.length > 0) {
