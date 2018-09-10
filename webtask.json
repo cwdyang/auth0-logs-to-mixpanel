@@ -25,8 +25,8 @@
     },
     "STACKIFY_ENV": {
       "description": "Stackify Environment e.g. Development",
-      "required": true,
-      "type": "password"
+      "required": true
+      /*"type": "password"*/
     },
     "BATCH_SIZE": {
       "description": "The amount of logs to be read on each execution. Maximum is 20.",
