@@ -90,7 +90,7 @@ module.exports = storage =>
       return sendLogs(mixpanelEvents, cb);
     };
 
-    const slack = new loggingTools.reporters.SlackReporter({ hook: config('SLACK_INCOMING_WEBHOOK_URL'), username: 'auth0-logs-to-mixpanel', title: 'Logs To Mixpanel' });
+    const slack = new loggingTools.reporters.SlackReporter({ hook: config('SLACK_INCOMING_WEBHOOK_URL'), username: 'auth0-logs-to-stackify', title: 'Logs To Mixpanel' });
 
     const options = {
       domain: config('AUTH0_DOMAIN'),
